@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Della+Respira&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Italiana&family=Kalnia:wght@100..700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syncopate:wght@400;700&family=Teachers:ital,wght@0,400..800;1,400..800&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div><h1>Calculator App</h1></div>
+    <div class="calculator">
+      <input type="text" class="output" id="display" />
+      <button onclick="clearDisplay()" class="clear">C</button>
+      <button onclick="backspace()">←</button>
+      <button onclick="appendToDisplay('%')" class="operator">%</button>
+      <button onclick="appendToDisplay('/')" class="operator">&divide;</button>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('*')" class="operator">&times;</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('-')" class="operator">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('+')" class="operator">+</button>
+      <button
+        onclick="appendToDisplay('0')"
+        style="grid-column: span 2"
+        class="zero"
+      ></button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="calculate()" class="operator">=</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
