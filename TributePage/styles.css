@@ -1,0 +1,52 @@
+body {
+    background-color: #212529;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-family: "Syncopate", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .tata-img {
+    border-radius: 8px;
+    filter: drop-shadow(#494848da -1rem -1rem 20px);
+  }
+
+  p {
+    font-family: "Della Respira", serif;
+    font-optical-sizing: auto;
+    font-style: italic;
+    font-variation-settings: 100;
+  }
+  .bold {
+    font-family: "Della Respira", serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: large;
+  }
+  .quote {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    background-color: #212529;
+  }
+  .divider {
+    border: dotted #c152fd 10px;
+    border-bottom: none;
+    width: 70%;
+    margin: auto;
+  }
+  .border-custom {
+    width: 80%;
+    margin: auto;
+  }
+  .achievement {
+    width: 100vw;
+  }
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
