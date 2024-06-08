@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Della+Respira&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Italiana&family=Kalnia:wght@100..700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syncopate:wght@400;700&family=Teachers:ital,wght@0,400..800;1,400..800&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculator App</title>
+    <style>
+      .operator {
+        background-color: rgb(254, 170, 0);
+      }
+      .clear {
+        background-color: red;
+      }
+      .zero {
+        border-radius: 40px;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #212529;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        color: #ffffff;
+        font-family: "Teachers", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: italic;
+      }
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        max-width: 400px;
+        border: 2px solid white;
+        padding: 25px;
+        border-radius: 45px;
+        filter: drop-shadow(#494848da -1rem -1rem 20px);
+      }
+      .calculator input {
+        background-color: whitesmoke;
+        padding: 25px;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 30px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 20px;
+        font-size: 1.5em;
+        border: none;
+        background-color: #969494;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      .calculator .output {
+        grid-column: span 4;
+        text-align: right;
+        padding-right: 20px;
+      }
+      button {
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div><h1>Calculator App</h1></div>
+    <div class="calculator">
+      <input type="text" class="output" id="display" />
+      <button onclick="clearDisplay()" class="clear">C</button>
+      <button onclick="backspace()">←</button>
+      <button onclick="appendToDisplay('%')" class="operator">%</button>
+      <button onclick="appendToDisplay('/')" class="operator">&divide;</button>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('*')" class="operator">&times;</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('-')" class="operator">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('+')" class="operator">+</button>
+      <button
+        onclick="appendToDisplay('0')"
+        style="grid-column: span 2"
+        class="zero"
+      >
+        0
+      </button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="calculate()" class="operator">=</button>
+    </div>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        const key = event.key;
+
+        if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(key)) {
+          appendToDisplay(key);
+        } else if (["+", "-", "*", "/", "%"].includes(key)) {
+          appendToDisplay(key);
+        } else if (key === "Enter") {
+          calculate();
+        } else if (key === "Backspace") {
+          backspace();
+        } else if (key === "c" && event.ctrlKey) {
+          clearDisplay();
+        }
+      });
+      function appendToDisplay(value) {
+        document.getElementById("display").value += value;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function backspace() {
+        let display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+      }
+
+      function calculate() {
+        let display = document.getElementById("display");
+        try {
+          display.value = eval(display.value);
+        } catch (error) {
+          display.value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
